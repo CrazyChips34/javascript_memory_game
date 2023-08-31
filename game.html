@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link href="mgStyle.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&display=swap');
+       
+
+        /* Responsive styles */
+        @media only screen and (max-width: 600px) {
+            /* Adjust font sizes, margins, or any other styles for small screens */
+            body {
+                font-size: 14px;
+                background-size: contain; 
+
+            }
+            .game-container {
+                margin: 10px;
+            }
+        }
+    </style>
+
+</head>
+<body>
+<div>
+    <h1>Memory Game</h1>
+</div>
+ <!--game elements-->
+    <div class="game-container">
+        <!--game buttons and stats-->
+        <div class="game-controls">
+            <button class="start-button">Start</button>
+         <div class="game-stats">
+                <div class="move-counter">Moves: 0 </div>
+                <div class="game-timer">Time: 100 sec</div>
+         </div>
+        </div>
+        <!--Board and a message that displays after the game is completed-->
+        <div class="game-board-container">
+            <br/>
+            <div class="game-board" data-dimension="4"></div>
+            <div class="game-win-message">You won!</div>
+        </div>
+        <br/>
+        <button class="restart-button">Restart Game</button>
+    </div>
+    
+    <!--JavaScript link-->
+    <script src="gameNew.js" defer></script>
+</body>
+</html>

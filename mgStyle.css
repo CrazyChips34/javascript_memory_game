@@ -1,0 +1,250 @@
+*{
+    box-sizing: border-box;
+}
+/*backgound*/
+html{
+    margin: 0;
+    padding: 0;
+    background-image: url("image/bg_image2.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; 
+   
+}
+/*heading*/
+h1{
+    font-family: 'Cherry Bomb One', cursive;
+    text-align: center;
+    font-size: 50px;
+    color: rgb(20, 49, 73);
+}
+
+ /* .overlay-text{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    z-index: 100; /*brings text forword
+    font-family: 'Cherry Bomb One', cursive;
+    font-size: 100px;
+    background: rgba(20, 49, 73, 0.411);
+    color: #6e8bca;
+}
+
+.overlay-text.visible {
+    display: flex;
+    flex-direction: column;
+    animation: overlay-grow 500ms forwards;
+  }
+
+  
+@keyframes overlay-grow {
+    from {
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 0;
+    }
+    to {
+      background-color: rgba(0, 0, 0, .8);
+      font-size: 10em;
+    }
+  }
+  
+  @keyframes dance {
+    0%, 100%  {
+      transform: rotate(0);
+    }
+    25% {
+      transform: rotate(-30deg);
+    }
+    75% {
+      transform: rotate(30deg);
+    }
+  } */
+
+/*putting the container in the middle of the page/ parent element*/
+/* .game-container {
+    position: absolute;
+    margin: auto;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+
+.game-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/*structure for buttons and stats*/
+
+.game-controls { 
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    /*add*/
+    margin-bottom: 20px;
+}
+
+button {
+    background: rgb(20, 49, 73);
+    color: #FFF;
+    border-radius: 5px;
+    padding: 5px 20px;
+    border: 0;
+    cursor: pointer;
+    font-family: 'Cherry Bomb One', cursive;
+    font-size: 30px;
+}
+
+/*needs to move to the middle*/
+.restart-button{
+   display: flex;
+   align-items: center;
+   justify-content: space-around;
+   /* position: absolute; */
+}
+
+.disabled {
+    color: #757575;
+}
+
+.game-stats{
+    color: #FFF;
+    font-size: 20px;
+}
+
+/*Game Board*/
+
+.game-board-container {
+    position: relative;
+}
+
+
+.game-board,
+.game-win-message {
+    border-radius: 5px;
+    box-shadow: 0 25px 50px rgba(46, 46, 46, 0.863);
+    background: #AEE2FF;
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+}
+
+.game-board {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 10px;
+  justify-content: center;
+  perspective: 500px;
+  background-color: #AEE2FF;
+  background-size: cover;
+  
+
+}
+
+.game-board-container .flipped .game-board{
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.game-board-container .flipped .game-win-message{
+    transform: rotateY(0) rotateZ(0);
+}
+
+/*Cards*/
+
+.card {
+    position: relative;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    background-color: #AEE2FF;
+    font-size: 24px;
+}
+
+.card-front, .card-back{
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    background: #282A3A;
+    transition: transform .6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    backface-visibility: hidden;
+}
+/*added a image to the card*/
+.card-front{
+    background-image: url("image/badge.png");
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    
+}
+/*rotates the card */
+.card-back {
+    transform: rotateY(180deg) rotateZ(50deg); /*3D rotation effect*/
+    font-size: 50px;
+    user-select: none;
+    text-align: center;
+    line-height: 100px;
+    background: #AEE2FF;
+}
+
+.card.flipped .card-front {
+    transform: rotateY(180deg) rotateZ(50deg);
+}
+
+.card.flipped .card-back {
+    transform: rotateY(0) rotateZ(0);
+}
+
+
+
+/*message tht would pop up when you win*/
+.game-win-message{
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background: #FDF8E6;
+    transform: rotateY(360deg) rotateZ(0deg);
+}
+
+.game-win-message-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: #282A3A;
+}
+
+.game-win-message.visible {
+    display: block;
+  }
+
+.highlight {
+    color: #002efc;
+}
+
+
+/* Responsive Styles */
+@media only screen and (max-width: 600px) {
+    body {
+      font-size: 14px;
+      background-size: contain;
+    }
+  
+    .game-container {
+      margin: 10px;
+    }
+  }
+
